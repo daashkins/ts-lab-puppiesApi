@@ -5,7 +5,7 @@ export default interface Puppy {
   name: string, 
   birth_date: string, 
   breed: string, 
-  _id: ObjectId,
-  id: string,
+  _id?: ObjectId,
+  id?: string,
 }
 
