@@ -1,0 +1,27 @@
+// External Dependencies
+import * as mongoDB from "mongodb";
+import * as dotenv from "dotenv";
+dotenv.config();
+// Global Variables
+export const collections: { puppies?: mongoDB.Collection } = {}
+
+// Initialize Connection
+
+export const connectToDatabase = async () => {
+   
+ 
+    const client: mongoDB.MongoClient = new mongoDB.MongoClient(`${process.env.DB_CONN_STRING}`);
+            
+    await client.connect();
+        
+    const db: mongoDB.Db = client.db(process.env.DB_NAME);
+   
+    const puppiesCollection: mongoDB.Collection = db.collection(`${process.env.DB_COLLECTION_NAME}`);
+ 
+  collections.puppies = puppiesCollection;
+       
+         console.log(`Successfully connected to database: ${db.databaseName} and collection: ${puppiesCollection.collectionName}`);
+ }
+
+
+//  export default { connectToDatabase}
