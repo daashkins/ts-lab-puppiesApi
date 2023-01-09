@@ -1,11 +1,8 @@
-// External Dependencies
 import * as mongoDB from "mongodb";
 import * as dotenv from "dotenv";
 dotenv.config();
-// Global Variables
-export const collections: { puppies?: mongoDB.Collection } = {}
 
-// Initialize Connection
+export const collections: { puppies?: mongoDB.Collection } = {}
 
 export const connectToDatabase = async () => {
    
@@ -22,6 +19,3 @@ export const connectToDatabase = async () => {
        
          console.log(`Successfully connected to database: ${db.databaseName} and collection: ${puppiesCollection.collectionName}`);
  }
-
-
-//  export default { connectToDatabase}

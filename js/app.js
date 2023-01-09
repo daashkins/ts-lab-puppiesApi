@@ -1,6 +1,5 @@
 "use strict";
 exports.__esModule = true;
-// import express from 'express';
 var express = require("express");
 var db_services_1 = require("./src/services/db.services");
 var router_1 = require("./src/routes/router");

@@ -1,7 +1,5 @@
-// import express from 'express';
 import express = require('express');
 import { Request, Response, Application } from 'express';
-// import express, { Request, Response, Application } from "express";
 import { ObjectId } from "mongodb";
 import { connectToDatabase } from "./src/services/db.services"
 import { router } from "./src/routes/router";

@@ -37,13 +37,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.router = void 0;
-// External Dependencies
 var express = require("express");
 var db_services_1 = require("../services/db.services");
-// Global Config
 exports.router = express.Router();
 exports.router.use(express.json());
-// GET
 exports.router.get('/', function (_req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var puppies, error_1;
     return __generator(this, function (_a) {
@@ -52,7 +49,7 @@ exports.router.get('/', function (_req, res) { return __awaiter(void 0, void 0, 
                 _a.trys.push([0, 2, , 3]);
                 return [4 /*yield*/, db_services_1.collections.puppies.find({}).toArray()];
             case 1:
-                puppies = (_a.sent());
+                puppies = _a.sent();
                 res.status(200).send(puppies);
                 return [3 /*break*/, 3];
             case 2:
@@ -64,24 +61,25 @@ exports.router.get('/', function (_req, res) { return __awaiter(void 0, void 0, 
     });
 }); });
 exports.router.get('/:id', function (_req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var puppies, error_2;
+    var id, puppy, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, db_services_1.collections.puppies.find({}).toArray()];
+                id = _req.params.id;
+                console.log(id);
+                _a.label = 1;
             case 1:
-                puppies = (_a.sent());
-                res.status(200).send(puppies);
-                return [3 /*break*/, 3];
+                _a.trys.push([1, 3, , 4]);
+                return [4 /*yield*/, db_services_1.collections.puppies.findOne({ id: id })];
             case 2:
+                puppy = _a.sent();
+                res.status(200).send(puppy);
+                return [3 /*break*/, 4];
+            case 3:
                 error_2 = _a.sent();
                 res.status(500).send(error_2.message);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); });
-// POST
-// PUT
-// DELETE

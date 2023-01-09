@@ -37,13 +37,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.connectToDatabase = exports.collections = void 0;
-// External Dependencies
 var mongoDB = require("mongodb");
 var dotenv = require("dotenv");
 dotenv.config();
-// Global Variables
 exports.collections = {};
-// Initialize Connection
 var connectToDatabase = function () { return __awaiter(void 0, void 0, void 0, function () {
     var client, db, puppiesCollection;
     return __generator(this, function (_a) {
@@ -62,4 +59,3 @@ var connectToDatabase = function () { return __awaiter(void 0, void 0, void 0, f
     });
 }); };
 exports.connectToDatabase = connectToDatabase;
-//  export default { connectToDatabase}
